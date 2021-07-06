@@ -15,13 +15,13 @@ def filterCity(response, date):
     result = []
     # Append clinique to result list if all requirements are valid
     for clinique in response:
-        if clinique['hasWebTimebook'] == True and clinique['city'] in cities and filterppointmentType(clinique, date):
+        if clinique['hasWebTimebook'] == True and clinique['city'] in cities and filterApointmentType(clinique, date):
             result.append(clinique)
 
     return result
 
 
-def filterppointmentType(clinique, date):
+def filterApointmentType(clinique, date):
     # Covid catagory ids 
     cat_ids = ['2596', '6898', '1348', '6680']  # TODO: Check if there is an enpoint for retriving all categories wiht ids
     
