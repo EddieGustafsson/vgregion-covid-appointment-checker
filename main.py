@@ -88,6 +88,7 @@ def main(minutes, date):
         print(f"Exception raised: {ex}")
 
 def test_main():
+    # Test case for the main function
     response = requests.get(
             'https://booking-api.mittvaccin.se/clinique/').json()
 
