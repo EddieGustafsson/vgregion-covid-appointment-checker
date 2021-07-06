@@ -23,7 +23,7 @@ def filterCity(response, date):
 
 def filterApointmentType(clinique, date):
     # Covid catagory ids 
-    cat_ids = ['2596', '6898', '1348', '6680']  # TODO: Check if there is an enpoint for retriving all categories wiht ids
+    cat_ids = ['2596', '6898', '1348', '6680']  # TODO: Check if there is an enpoint for retriving all categories with ids
     
     # Appointment types endpoint
     appointmentTypes = requests.get(
@@ -44,7 +44,7 @@ def checkSlots(clinique, type, date):
 
     # Checks if there are any appointmens available
     for appointment in appointments:
-        if len(appointment['slots']) != 0:
+        if len(appointment['slots']) > 0:
             for slot in appointment['slots']:
                 if slot['available'] == True:
                     return True
