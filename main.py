@@ -87,6 +87,12 @@ def main(minutes, date):
     except Exception as ex:
         print(f"Exception raised: {ex}")
 
+def test_main():
+    response = requests.get(
+            'https://booking-api.mittvaccin.se/clinique/').json()
+
+    cliniques = filterCity(response, '10719-210725')
+    assert cliniques is not None
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
