@@ -1,0 +1,4 @@
+plyer
+prettytable
+threading
+requests
