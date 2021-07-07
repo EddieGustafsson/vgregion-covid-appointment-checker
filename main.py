@@ -71,7 +71,7 @@ def main(minutes, date):
                 table.add_row(
                     [clinique['id'], clinique['city'], clinique['name']])
 
-            # Creates a notofication when an appointment is found
+            # Creates a notification when an appointment is found
             title = 'Appointment found!'
             message = f"An appointment for Covid-19 was found check the console"
             notification.notify(title=title,
