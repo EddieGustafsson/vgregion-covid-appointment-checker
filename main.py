@@ -51,9 +51,6 @@ def checkSlots(clinique, type, date):
 
 
 def main(minutes, date):
-
-    threading.Timer(60 * int(minutes), main).start()
-
     try:
         # Create console table for output
         table = PrettyTable()
@@ -82,10 +79,11 @@ def main(minutes, date):
             # Print result in the console
             print(f"{title}\r\n{table}")
         else:
-            print(f"No available appointments. (Retrying in {str(minutes)} minutes)")
+            print(f"No available appointments. (Retrying in {str(minutes)} minute(s))")
 
     except Exception as ex:
         print(f"Exception raised: {ex}")
+        sys.exit()
 
 def test_main():
     # Test case for the main function
@@ -97,6 +95,12 @@ def test_main():
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        main(sys.argv[1], sys.argv[2])
+        # Defines the input parameters
+        minutes = int(sys.argv[1])
+        dateRange = sys.argv[2]
+        seconds = 60 * minutes
+
+        # Starts the threading timer
+        threading.Timer(seconds, main(minutes, dateRange)).start()
     else:
         print("Error: no arguments passed")
